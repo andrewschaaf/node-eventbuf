@@ -2,7 +2,9 @@
 
 An eventbuf is persisted to a directory.
 
-There are size-rotated append-only files.
+## What the Appender writes (to log events)
+
+There are size-rotated append-only <code>events-...</code> files.
 
 Their filenames are strictly increasing.
 
@@ -19,12 +21,10 @@ my-eventbuf-dir/
 Assumption (for now): there will never be multiple appenders or multiple readers running at once. Enforcing this is your responsibility (for now).
 
 <pre>
-<b>file</b>:
-  <a href="http://code.google.com/apis/protocolbuffers/docs/encoding.html#varints">uvarint</a>(formatNumber) + <b>event</b>s
-</pre>
+FILE:
+  EVENTs
 
-<pre>
-<b>event</b>:
+EVENT:
   uint32le(data.length)
   uint64le(utc_ms)
   data
