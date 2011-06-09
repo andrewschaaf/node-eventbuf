@@ -30,3 +30,7 @@ EVENT:
   data
   4-byte hash: (sha256 of the above (12 + data.length) bytes)[0:4]
 </pre>
+
+## What the Reader writes (to save its position)
+
+TODO
